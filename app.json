@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "plugins": [
+      "expo-router"
+    ],
+    "name": "my-theme-app",
+    "slug": "my-theme-app"
+  }
+}
