@@ -3,8 +3,9 @@ import { Appearance, ColorSchemeName } from 'react-native';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { lightTheme, darkTheme, ThemeType } from '../theme';
+import { useCustomThemeStore } from './customThemeStore';
 
-type ThemeName = 'light' | 'dark' | 'adaptive';
+type ThemeName = 'light' | 'dark' | 'adaptive' | 'custom';
 
 interface ThemeState {
     themeName: ThemeName;
@@ -29,13 +30,18 @@ export const useThemeStore = create<ThemeState>()(
                 themeName: 'adaptive',
                 theme: getAdaptiveTheme(),
                 setTheme: (themeName: ThemeName) => {
-                    const theme =
-                        themeName === 'adaptive'
-                            ? getAdaptiveTheme()
-                            : themeName === 'dark'
-                                ? darkTheme
-                                : lightTheme;
-                    set({ themeName, theme });
+                    if (themeName === 'custom') {
+                        const customTheme = useCustomThemeStore.getState().customTheme;
+                        set({ themeName, theme: customTheme });
+                    } else {
+                        const theme =
+                            themeName === 'adaptive'
+                                ? getAdaptiveTheme()
+                                : themeName === 'dark'
+                                    ? darkTheme
+                                    : lightTheme;
+                        set({ themeName, theme });
+                    }
                 },
             };
         },

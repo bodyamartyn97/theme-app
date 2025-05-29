@@ -8,6 +8,7 @@ import {useFontSizeStore} from "../../../src/store/fontSizeStore";
 export default function ThemeScreen () {
     const { themeName, setTheme, theme } = useThemeStore();
     const { titleFontSize } = useFontSizeStore();
+
     return (
         <View style={[styles.container, {backgroundColor: theme.background}]}>
             <Text style={ { color: theme.text, fontSize: titleFontSize}}>Current Theme: {themeName}</Text>
@@ -16,6 +17,7 @@ export default function ThemeScreen () {
                 <CustomButton title={'Light'}  backgroundColor={theme.primary} onPress={() => setTheme('light')} />
                 <CustomButton title={'Dark'}  backgroundColor={theme.primary} onPress={() => setTheme('dark')} />
                 <CustomButton title={'Adaptive'}  backgroundColor={theme.primary} onPress={() => setTheme('adaptive')} />
+                <CustomButton title={'Custom'} backgroundColor={theme.primary} onPress={() => setTheme('custom')} />
             </View>
         </View>
     )
