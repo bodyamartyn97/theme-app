@@ -6,6 +6,16 @@
       "expo-font"
     ],
     "name": "my-theme-app",
-    "slug": "my-theme-app"
+    "slug": "my-theme-app",
+    "owner": "martyn1997",
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "4a8fce0f-9151-4a6f-8afc-2ecfd00bd969"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.martyn1997.mythemeapp"
+    }
   }
 }
