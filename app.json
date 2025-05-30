@@ -16,6 +16,9 @@
     },
     "ios": {
       "bundleIdentifier": "com.martyn1997.mythemeapp"
+    },
+    "android": {
+      "package": "com.martyn1997.mythemeapp"
     }
   }
 }
